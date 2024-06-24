@@ -2,6 +2,9 @@ import axios from "axios";
 import express from "express";
 import bodyParser from "body-parser";
 
+const express = require('express');
+const path = require('path'); 
+
 const app = express();
 const port = process.env.PORT ||    3000;
 app.use(express.static('public'));
