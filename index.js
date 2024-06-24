@@ -28,19 +28,25 @@ app.get('/', (req, res) => {
 
 // Rotta per gestire la richiesta di ricerca
 app.post('/search', async (req, res) => {
-  const { title, author } = req.body;
-
-  try {
-    const response = await axios.get('http://openlibrary.org/search.json', {
-      params: { title, author }
-    });
-    const books = response.data.docs;
-    res.render('index.ejs', { books, error: null });
-  } catch (error) {
-    console.error('Errore durante la ricerca dei libri:', error.response ? error.response.data : error.message);
-    res.render('index', { books: null, error: 'Errore durante la ricerca dei libri.' });
-  }
-});
+    const title = req.body.title;
+    const author = req.body.author;
+  
+    const params = {};
+    if (title) {
+      params.title = title;
+    }
+    if (author) {
+      params.author = author;
+    }
+  
+    try {
+      const response = await axios.get('http://openlibrary.org/search.json', { params });
+      const books = response.data.docs;
+      res.render('index.ejs', { books: books, error: null });
+    } catch (error) {
+      res.render('index.ejs', { books: null, error: 'Errore durante la ricerca dei libri.' });
+    }
+  });
 
 // Avvia il server
 app.listen(port, () => {
