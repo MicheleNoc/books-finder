@@ -1,9 +1,8 @@
 import axios from "axios";
 import express from "express";
 import bodyParser from "body-parser";
+import path from "path";
 
-const express = require('express');
-const path = require('path'); 
 
 const app = express();
 const port = process.env.PORT ||    3000;
