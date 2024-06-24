@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Middleware per servire file statici dalla directory 'public'
-app.use(express.static('Public'));
+app.use(express.static(path.join(__dirname, 'Public')));
 
 // Rotta per la pagina principale con il form di ricerca
 app.get('/', (req, res) => {
