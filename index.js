@@ -23,7 +23,7 @@ app.use(express.static('public'));
 
 // Rotta per la pagina principale con il form di ricerca
 app.get('/', (req, res) => {
-  res.render('index', { books: null, error: null });
+  res.render('index.ejs', { books: null, error: null });
 });
 
 // Rotta per gestire la richiesta di ricerca
