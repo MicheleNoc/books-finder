@@ -1,0 +1,89 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url('library.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+.container {
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+}
+.search-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.search-form input {
+  width: 70%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.search-form button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  background-color: #007BFF;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.search-form button:hover {
+  background-color: #0056b3;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.card {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: calc(100% / 3 - 20px);
+  padding: 15px;
+  box-sizing: border-box;
+}
+.card h3 {
+  margin-top: 0;
+  font-size: 1.2em;
+}
+.card p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #555;
+}
+.card .publisher, .card .year {
+  margin-top: 10px;
+  font-size: 0.8em;
+  color: #888;
+}
+@media (max-width: 768px) {
+  .card {
+    width: calc(100% / 2 - 20px);
+  }
+}
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+  }
+}
+   h1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: black;
+  }

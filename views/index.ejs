@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ricerca Libri 📚 </title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Ricerca Libri 📚</h1>
+    <form class="search-form" action="/search" method="POST">
+      <input type="text" name="title" placeholder="Inserisci il titolo del libro">
+      <input type="text" name="author" placeholder="Inserisci l'autore del libro">
+      <button type="submit">Cerca</button>
+    </form>
+    <% if (error) { %>
+      <p><%= error %></p>
+    <% } %>
+    <% if (books) { %>
+      <div class="cards">
+        <% books.forEach(book => { %>
+          <div class="card">
+            <h3><%= book.title %></h3>
+            <p>di <%= book.author_name ? book.author_name.join(', ') : 'Autore sconosciuto' %></p>
+            <% if (book.first_publish_year) { %>
+              <p class="year">Pubblicato nel <%= book.first_publish_year %></p>
+            <% } %>
+            <% if (book.publisher) { %>
+              <p class="publisher">Casa Editrice: <%= book.publisher.join(', ') %></p>
+            <% } %>
+          </div>
+        <% }) %>
+      </div>
+    <% } %>
+  </div>
+</body>
+</html>
+
