@@ -6,6 +6,12 @@ const app = express();
 const port = process.env.PORT ||    3000;
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Imposta EJS come motore di rendering
+app.set('view engine', 'ejs');
+
+// Imposta la directory delle viste (opzionale se 'views' è la directory predefinita)
+app.set('views', path.join(__dirname, 'views'));
 // Rotta per la pagina principale con il form di ricerca
 app.get('/', (req, res) => {
     res.render('index.ejs', { books: null, error: null });
