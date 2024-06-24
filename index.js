@@ -37,8 +37,8 @@ app.post('/search', async (req, res) => {
     const books = response.data.docs;
     res.render('index.ejs', { books, error: null });
   } catch (error) {
-    console.error('Errore durante la ricerca dei libri:', error.message);
-    res.render('index.ejs', { books: null, error: 'Errore durante la ricerca dei libri.' });
+    console.error('Errore durante la ricerca dei libri:', error.response ? error.response.data : error.message);
+    res.render('index', { books: null, error: 'Errore durante la ricerca dei libri.' });
   }
 });
 
