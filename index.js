@@ -6,8 +6,6 @@ const app = express();
 const port = process.env.PORT ||    3000;
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
-// Imposta EJS come motore di visualizzazione
-app.set('view engine', 'ejs');
 // Rotta per la pagina principale con il form di ricerca
 app.get('/', (req, res) => {
     res.render('index.ejs', { books: null, error: null });
