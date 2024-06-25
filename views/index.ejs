@@ -12,6 +12,15 @@
     <form class="search-form" action="/search" method="POST">
       <input type="text" name="title" placeholder="Inserisci il titolo del libro">
       <input type="text" name="author" placeholder="Inserisci l'autore del libro">
+      <select name="language">
+        <option value="">Seleziona il linguaggio</option>
+        <option value="eng">Inglese</option>
+        <option value="ita">Italiano</option>
+        <option value="fra">Francese</option>
+        <option value="spa">Spagnolo</option>
+        <option value="deu">Tedesco</option>
+        <!-- Aggiungi altre lingue qui -->
+      </select>
       <button type="submit">Cerca</button>
     </form>
     <% if (error) { %>
@@ -29,6 +38,17 @@
             <% if (book.publisher) { %>
               <p class="publisher">Casa Editrice: <%= book.publisher.join(', ') %></p>
             <% } %>
+            <p>Languages: 
+              <ul>
+                <% if (book.language) { %>
+                  <% book.language.forEach(function(language) { %>
+                    <%= language %>
+                  <% }); %>
+                <% } else { %>
+                  <li>Unknown</li>
+                <% } %>
+              </ul>
+            </p>
           </div>
         <% }) %>
       </div>

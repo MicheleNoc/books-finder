@@ -31,6 +31,7 @@ app.get('/', (req, res) => {
 app.post('/search', async (req, res) => {
     const title = req.body.title;
     const author = req.body.author;
+    const language = req.body.language;
   
     const params = {};
     if (title) {
@@ -38,6 +39,9 @@ app.post('/search', async (req, res) => {
     }
     if (author) {
       params.author = author;
+    }
+    if (language) {
+      params.language = language;
     }
   
     try {
